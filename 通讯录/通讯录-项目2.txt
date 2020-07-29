@@ -1,0 +1,342 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+typedef struct NODE
+{
+	int id;
+	char * name;
+	char *tel;
+	struct NODE *pNext;
+}Node;
+typedef struct PAGE
+{
+	int CurrentPage;//当前页数
+	int TotalPage;//总页数
+	int TotalInfo;//总条数
+	int OnePageInfo;//一页条数；
+
+}Page;
+int GetId();                                                   //
+char *GeName();                                                //
+char *GetTel();                                                //    产生链表  
+Node *GetNode();                                               //
+void AddGetNode(Node **ppHead,Node **ppEnd,Node *pNode);       //
+void InitInFo(Node **ppHead,Node **ppEnd,int n);//初始化测试
+Page *GetPage(Node *pHead,int OnePageInfo);//得到页数分配结构体
+void ShowInfo(Node *pHead,Page *pPage);//显示当前页的信息（几条）
+void TurnPage(Node *pHead,Page *pPage);//翻转菜单   ShowInfo包装进去；
+char GetKey();
+void Browse(Node *pHead);//包装TurnPage和GetPage;
+void ShowMenu(Page *pPage);//显示菜单 一定放在ShowInfo之后；
+///////////----------------------------------------  查询信息
+char *GetString();//输个添加信息；
+Node *GetNewNode();//添加新节点
+///////////----------------------------------------  添加信息
+int main()
+{
+	Node *pHead=NULL;
+	Node *pEnd=NULL;
+	
+	char c;
+	//Page *pPage;//不能直接Page *pPage=GetPage(pHead,20)
+	InitInFo(&pHead,&pEnd,101);//初始化
+
+	while(1)
+	{
+		printf("1.查看通讯录\n");
+		printf("2.添加信息\n");
+		printf("3.查询信息\n");
+		printf("4.删除信息\n");
+		printf("5.修改信息\n");
+		printf("q.退出\n");
+		c=GetKey();
+		switch(c)
+		{
+		case '1':
+			Browse(pHead);
+			break;
+		case '2':
+			AddGetNode(&pHead,&pEnd,GetNewNode());
+			break;
+		case 'q':
+			return 0;
+			break;
+		}
+
+	}
+
+	//ShowInfo(pHead,pPage);//里面包含下面注释的；
+	/*	while(pHead!=NULL)
+	{
+	printf("%d  %s  %s\n",pHead->id,pHead->name,pHead->tel);
+	pHead=pHead->pNext;
+	}*/
+
+	return 0;
+}
+
+int GetId()
+{
+	static int b=0;
+	b++;
+	return b;
+
+
+}
+Node *GetNode()
+{
+	Node *pTemp=(Node *)malloc(sizeof(Node));
+	pTemp->id=GetId();
+	pTemp->name=GeName();
+	pTemp->tel=GetTel();
+	pTemp->pNext=NULL;
+
+}
+
+void AddGetNode(Node **ppHead,Node **ppEnd,Node *pNode)
+{
+	if(*ppHead==NULL)
+	{
+		*ppHead=pNode;
+	}
+	else
+	{
+		(*ppEnd)->pNext=pNode;
+	}
+	*ppEnd=pNode;
+	return;
+}
+
+char *GeName()
+{
+	char *pName=(char *)malloc(6);
+	int i;
+	for(i=0;i<5;i++)
+	{
+		pName[i]=rand()%26+'a';
+	}
+	pName[i]='\0';
+	return pName;
+}
+char *GetTel()
+{
+	int i;
+	char *pTel=(char *)malloc(12);
+
+	switch(rand()%4)
+	{
+	case 0:
+		pTel[0]='1';
+		pTel[1]='3';
+		pTel[2]='3';	
+		break;
+	case 1:
+		pTel[0]='1';
+		pTel[1]='3';
+		pTel[2]='6';
+
+		//strcpy_s(pTel,12,"136");
+		break;
+	case 2:
+		pTel[0]='1';
+		pTel[1]='5';
+		pTel[2]='0';
+		//strcpy_s(pTel,12,"150");
+		break;
+	case 3:
+		pTel[0]='1';
+		pTel[1]='3';
+		pTel[2]='3';
+		//strcpy_s(pTel,12,"133");
+		break;
+	}
+	for(i=3;i<11;i++)
+	{
+		pTel[i]=rand()%10+'0';
+	}
+	pTel[i]='\0';
+	return pTel;
+
+}
+void InitInFo(Node **ppHead,Node **ppEnd,int n)
+{
+	int i;
+
+	srand((unsigned int)time(NULL));
+
+	for(i=0;i<n;i++)
+	{
+		AddGetNode(ppHead,ppEnd,GetNode());
+	}
+
+	return;
+}
+
+Page *GetPage(Node *pHead,int OnePageInfo)
+{
+
+
+
+	Page *pPage=(Page *)malloc(sizeof(Page));
+
+	//1.给结构体开辟空间
+	pPage->OnePageInfo=OnePageInfo;
+	pPage->CurrentPage=0;
+	//2.当前页  一页显示多少条
+	pPage->TotalInfo=0;
+
+	while(pHead!=NULL)
+	{
+
+		pPage->TotalInfo++;
+		//3.遍历链表得到总条数
+		pHead=pHead->pNext;
+
+	}
+
+	//4.总条数 和 一页显示多少条 计算出总页数
+	/*if(pPage->TotalInfo% pPage->OnePageInfo==0)
+	{
+	pPage->TotalPage=pPage->TotalInfo/ pPage->OnePageInfo;
+	}
+	else
+	{
+	pPage->TotalPage=pPage->TotalInfo/ pPage->OnePageInfo+1;
+	}*/
+	pPage->TotalPage=pPage->TotalInfo% pPage->OnePageInfo==0?pPage->TotalInfo/ pPage->OnePageInfo:pPage->TotalInfo/ pPage->OnePageInfo+1;
+	return pPage;
+}
+void ShowInfo(Node *pHead,Page *pPage)
+{
+	//通过当前页   每页显示多少    计算出 开始位置和结束位置
+	int i=0;
+	int Begin=(pPage->CurrentPage-1)*pPage->OnePageInfo+1;
+	int End=pPage->CurrentPage*pPage->OnePageInfo;
+	while(pHead!=NULL)
+	{
+		i++;
+		//遍历链表 结束
+		if(i>=Begin&&i<=End)
+		{
+			printf("%d %s %s\n",pHead->id,pHead->name,pHead->tel);
+		}
+		pHead=pHead->pNext;
+	}
+	return;
+}
+
+void TurnPage(Node *pHead,Page *pPage)
+{
+	char c='s';
+	while(1)
+	{
+		switch(c)
+		{
+		case 'w':
+			if(pPage->CurrentPage!=1)
+			{
+				system("cls");
+				pPage->CurrentPage--;
+				ShowInfo(pHead,pPage);
+				ShowMenu(pPage);
+				//printf("上一页 w   ，  s 下一页  b，返回主菜单\n");
+			}
+			else
+			{
+				printf("已经到第一页了\n");
+			}
+			break;
+		case 's':
+			if(pPage->CurrentPage!=pPage->TotalPage)
+			{
+				system("cls");
+
+				pPage->CurrentPage++;
+				ShowInfo(pHead,pPage);
+				ShowMenu(pPage);
+				//printf("上一页 w   ，  s 下一页  b，返回主菜单\n");
+			}
+			else
+			{
+				printf("已经到最后一页了\n");
+			}
+			break;
+		case 'b':
+			return;
+			break;
+		default :
+			printf("按错了\n");
+			break;
+		}
+		c=GetKey();
+	}
+	return;
+}
+char GetKey()
+{
+	char c;
+	char z;
+	int flag=1;
+	while((c=getchar())!='\n'||1==flag)//第一次循环z=‘\n’,c=getchar())!='\n'为了去掉后面的'\n';
+	{
+		z=c;
+		flag=0;
+	}
+	return z;//此循环c只能赋值最后一个字母；
+}
+
+void Browse(Node *pHead)
+{
+	Page  *pPage=GetPage(pHead,20);
+	TurnPage(pHead,pPage);//含有 ShowInfo()Showmenu();
+	return;
+}
+void ShowMenu(Page *pPage)
+{
+	printf("当前第%d页  共%d页  共%d条     上一页 w   .  s 下一页  b.返回主菜单\n",pPage->CurrentPage,pPage->TotalPage,pPage->TotalInfo);
+	return;
+}
+
+char *GetString()
+{
+	int size=5;
+	int count=0;
+	char *str=(char *)malloc(size);
+	char *Newstr=NULL;
+	char *pMark=str;
+	char c;
+	while((c=getchar())!='\n')
+	{
+		*str=c;
+		str++;
+		count++;
+		if(count+1==size)
+		{
+			*str='/0';
+			size+=5;
+			Newstr=(char *)malloc(size);
+			strcpy_s(Newstr,size,pMark);
+			free(pMark);
+			pMark=Newstr;
+			str=Newstr+count;
+		}
+	}
+	*str='\n';
+	return pMark;
+
+
+
+}
+Node *GetNewNode()
+{
+	Node *pNode=(Node *)malloc(sizeof(Node));
+	
+	pNode->id=GetId();
+	printf("输入name\n");
+	pNode->name=GetString();
+	printf("输入tel\n");
+	pNode->tel=GetString();
+	pNode->pNext=NULL;
+	return pNode;
+}
