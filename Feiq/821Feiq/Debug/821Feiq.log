@@ -1,0 +1,29 @@
+﻿生成启动时间为 2019/11/8 17:13:17。
+     1>项目“C:\Users\刘淼\Desktop\学习资料\项目\Feiq\821Feiq\821Feiq.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Visual Studio\VC\bin\CL.exe /c /I../821Feiq /I../INet /I../IMediator /I../Packdef /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\821Feiq.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\IMediator\UDPMediator.cpp ..\INet\UDPNet.cpp 821Feiq.cpp 821FeiqDlg.cpp DlgChat.cpp
+         UDPMediator.cpp
+         正在生成代码...
+         正在跳过...(未检测到相关更改)
+         DlgChat.cpp
+         821FeiqDlg.cpp
+         821Feiq.cpp
+         UDPNet.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _DEBUG /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\821Feiq.res" 821Feiq.rc 
+       Link:
+         D:\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\刘淼\Desktop\学习资料\项目\Feiq\Debug\821Feiq.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"D:\Visual Studio\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\刘淼\Desktop\学习资料\项目\Feiq\Debug\821Feiq.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\刘淼\Desktop\学习资料\项目\Feiq\Debug\821Feiq.lib" /MACHINE:X86 Debug\821Feiq.res
+         Debug\TCPMediator.obj
+         Debug\UDPMediator.obj
+         Debug\TCPNet.obj
+         Debug\UDPNet.obj
+         Debug\821Feiq.obj
+         Debug\821FeiqDlg.obj
+         Debug\DlgChat.obj
+         Debug\stdafx.obj
+         821Feiq.vcxproj -> C:\Users\刘淼\Desktop\学习资料\项目\Feiq\Debug\821Feiq.exe
+     1>已完成生成项目“C:\Users\刘淼\Desktop\学习资料\项目\Feiq\821Feiq\821Feiq.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.59
