@@ -1,0 +1,24 @@
+﻿生成启动时间为 2019/9/9 17:14:26。
+     1>项目“C:\Users\刘淼\Documents\Visual Studio 2012\数据库\MySql.c\MySql.c\MySql.c.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Visual Studio\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\MySql.c.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt MyDlg.cpp MySql.c.cpp MySql.cDlg.cpp
+         MySql.cDlg.cpp
+         MyDlg.cpp
+         正在生成代码...
+         正在跳过...(未检测到相关更改)
+         MySql.c.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _DEBUG /D _AFXDLL /l"0x0804" /Ix64\Debug\ /nologo /fo"x64\Debug\MySql.c.res" MySql.c.rc 
+       Link:
+         D:\Visual Studio\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\刘淼\Documents\Visual Studio 2012\数据库\MySql.c\x64\Debug\MySql.c.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"D:\Visual Studio\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\刘淼\Documents\Visual Studio 2012\数据库\MySql.c\x64\Debug\MySql.c.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\刘淼\Documents\Visual Studio 2012\数据库\MySql.c\x64\Debug\MySql.c.lib" /MACHINE:X64 x64\Debug\MySql.c.res
+         x64\Debug\CMySql.obj
+         x64\Debug\MyDlg.obj
+         x64\Debug\MySql.c.obj
+         x64\Debug\MySql.cDlg.obj
+         x64\Debug\stdafx.obj
+         MySql.c.vcxproj -> C:\Users\刘淼\Documents\Visual Studio 2012\数据库\MySql.c\x64\Debug\MySql.c.exe
+     1>已完成生成项目“C:\Users\刘淼\Documents\Visual Studio 2012\数据库\MySql.c\MySql.c\MySql.c.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.72
