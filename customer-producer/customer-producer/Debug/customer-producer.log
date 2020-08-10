@@ -1,0 +1,20 @@
+﻿生成启动时间为 2020/8/10 17:04:11。
+     1>项目“F:\学习视频\20190815网络\周末网络班\customer-producer\customer-producer\customer-producer.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\customer-producer.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\customer-producer.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt "customer-producer.cpp" "customer-producerDlg.cpp"
+         正在跳过...(未检测到相关更改)
+         customer-producerDlg.cpp
+         customer-producer.cpp
+       Link:
+         D:\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\学习视频\20190815网络\周末网络班\customer-producer\Debug\customer-producer.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"D:\Visual Studio\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"F:\学习视频\20190815网络\周末网络班\customer-producer\Debug\customer-producer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\学习视频\20190815网络\周末网络班\customer-producer\Debug\customer-producer.lib" /MACHINE:X86 "Debug\customer-producer.res"
+         "Debug\customer-producer.obj"
+         "Debug\customer-producerDlg.obj"
+         Debug\stdafx.obj
+         customer-producer.vcxproj -> F:\学习视频\20190815网络\周末网络班\customer-producer\Debug\customer-producer.exe
+     1>已完成生成项目“F:\学习视频\20190815网络\周末网络班\customer-producer\customer-producer\customer-producer.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.52
